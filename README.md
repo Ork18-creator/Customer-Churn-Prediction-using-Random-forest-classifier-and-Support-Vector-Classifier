@@ -1,51 +1,60 @@
-📌 **Project: Customer Churn Prediction using Machine Learning**
+Customer Churn Prediction using Machine Learning
 
-This project focuses on predicting customer churn in the banking sector using machine learning models. The primary objective is to help banks identify customers who are likely to leave, enabling them to take proactive retention measures.
+This project leverages machine learning to predict customer churn in the banking sector, enabling proactive customer retention strategies and minimizing revenue leakage.
 
+🔍 Business Problem
 
+Customer churn is a critical challenge for banks, directly impacting revenue, market share, and customer lifetime value (CLV). Retaining existing customers is significantly more cost-effective than acquiring new ones, making churn prediction an essential capability for strategic decision-making.
 
-🔍** Key Features:**
+⚙️ Approach
+1. Data Preparation & Feature Engineering
 
-Data Preprocessing & Feature Engineering
+- Converted categorical variables (e.g., Gender, Education, Income, Card Type) into machine-readable formats.
 
-Encoded categorical variables (Gender, Education, Income, Card Type, etc.)
+- Created dummy variables for Marital Status to capture nuanced customer behavior.
 
-Created dummy variables for Marital_Status
+- Standardized numerical features for fair model comparison.
 
-Normalized numerical features using StandardScaler
+- Applied SMOTE to address class imbalance, ensuring the model identifies churners effectively (high recall focus).
 
-Handled class imbalance with SMOTE (Synthetic Minority Over-sampling Technique)
+2. Model Development & Validation
 
+- Trained Random Forest Classifier with GridSearchCV to optimize hyperparameters.
 
+- Explored Support Vector Classifier (SVC) with multiple kernels to capture complex decision boundaries.
 
-**Model Training & Hyperparameter Tuning**
+- Evaluated models using 10-fold Cross Validation, prioritizing recall to minimize false negatives (i.e., ensuring at-risk customers are not missed).
 
-Implemented Random Forest Classifier with GridSearchCV to optimize estimators.
+📊 Results & Insights
 
-Implemented Support Vector Classifier (SVC) across multiple kernels (Linear, Poly, RBF, Sigmoid).
+- Random Forest Classifier: ~83.27% accuracy.
 
-Used 10-fold Cross Validation with scoring based on Recall, to minimize false negatives.
+- SVC (Polynomial Kernel, C=0.001): 88.16% accuracy (highest performance).
 
+- Final model chosen: SVC (Poly Kernel) for its superior ability to capture churn patterns.
 
+Business Impact:
 
-**Performance**
+- By correctly identifying likely churners, banks can target retention campaigns more effectively, reducing customer attrition.
 
-Random Forest Classifier achieved ~83.27% accuracy.
+- Focus on recall-driven modeling ensures fewer “missed churners,” allowing banks to intervene early.
 
-Support Vector Classifier with Polynomial kernel (C=0.001) achieved the highest accuracy of 88.16%.
+- The model provides an opportunity to segment customers based on churn probability and allocate retention budgets strategically (e.g., offering tailored promotions or personalized financial advice).
 
-Final model selected: SVC with Poly Kernel.
+🛠️ Technologies & Tools
 
+- Python: NumPy, Pandas, Scikit-learn
 
+- Imbalanced-learn: SMOTE
 
-**📊 Technologies & Libraries:**
+- Models: Random Forest, SVC
 
-Python (NumPy, Pandas, Scikit-learn)
+- Optimization & Validation: GridSearchCV, Cross Validation
 
-Imbalanced-learn (SMOTE)
+📈 Business Analyst Perspective
 
-Random Forest Classifier
+- This solution equips decision-makers with a predictive lens into customer behavior, shifting churn management from reactive to proactive.
 
-Support Vector Classifier (SVC)
+- The churn model can be integrated with CRM systems to trigger automated retention workflows (e.g., sending retention offers when churn probability crosses a threshold).
 
-GridSearchCV & Cross Validation
+- Financially, reducing churn by even 5–10% could translate into millions in retained revenue annually, given the high lifetime value of banking customers.
